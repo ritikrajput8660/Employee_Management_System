@@ -1,0 +1,41 @@
+{% extends 'app/nav.html' %}
+
+    {% block title %}  Home-page {% endblock  %}
+    {% block body %}
+    {% include 'app/nav.html' %}
+   <h1 class="text-center my-3">this is home page</h1>
+   <h1 class="text-center my-3">List of Students </h1>
+   <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <th>EmpId</th>
+                            <th>EmpName</th>
+                            <th>EmpMail</th>
+                            <th>EmpPhone number</th>
+                        </thead>
+                        <tbody>
+                            {% for e in emp %}
+                                <tr>
+                                    {% comment %} <td>{{forloop.counter}}</td> {% endcomment %}
+                                    <td>{{e.EmpId}}</td>
+                                    <td>{{e.EmpName}}</td>
+                                    <td> {{e.EmpMail}}</td>
+                                    <td> {{e.EmpPhoneNumber}}</td>
+                                    <td><a href="{% url 'update_emp' e.id%}" class="btn btn-danger md-sm">Delete</a></td>
+                                    <td><a href="/update_Emp/{{e.id}}" class="btn btn-success md-sm">Update</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   </div>
+  
+    {% endblock  %}

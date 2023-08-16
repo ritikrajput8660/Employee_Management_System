@@ -1,0 +1,39 @@
+{% extends 'app/nav.html' %}
+
+    {% block title %}  Home-page {% endblock  %}
+    {% block body %}
+    {% include 'app/nav.html' %}
+   <h1 class="text-center my-3">Add New Employee </h1>
+   <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="md-3">
+                            <label for="Id">EmpId</label>
+                            <input type="text" name="Id" id="Id" class="form-control" placeholder = "Enter Employee Id">
+                        </div>
+                        <div class="md-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder = "Enter Employee Name">
+                        </div>
+                        <div class="md-3">
+                            <label for="mail">Email</label>
+                            <input type="text" name="mail" id="mail" class="form-control" placeholder = "Enter Employee Email">
+                        </div>
+                        <div class="md-3">
+                            <label for="phone">Phone number</label>
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder = "Enter Employee Phone Number">
+                        </div>
+                        <div class="container text-center my-3">
+                            <button class="btn btn-primary">Add Employee</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+    {% endblock  %}
